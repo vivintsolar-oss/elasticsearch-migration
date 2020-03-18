@@ -3,16 +3,11 @@ Elasticsearch Updater
 
 Elasticsearch Updater takes care of automatically updating index mappings, running data transformation scripts, and re-targeting aliases to new indices when a schema change needs to be made. It assumes that all mutable logical indices are actually represented by aliases pointing to some concrete backing index, and that there is a one-to-one relationship between aliases and active backing indices. Updates are performed on an alias by re-indexing its current backing index, leaving the originaindex behind as a back-up, and then re-targeting the alias at the new active index.
 
-Elasticsearch Cloner
----------------------
-
-Elasticsearch Cloner takes care of preparing a target index with the appropriate mappings and index settings, re-indexing to copy data from a remote instance alias, and setting up the alias for the cloned index. It requires that your target instance already have the source whitelisted.
-
 **Usage**
 
 * `esmigrate init [endpoint]` -- Generate a migration file that will produce a database from scratch implementing the same schema as the target instance running at `endpoint`, and set the schema version on `endpoint` if it has not been set before. Note that this is a global command, which acts on all aliases in the target remote instance.
 
-* `esmigrate clone [source] [target] [alias] [size? = Infinity]` -- Copy documents from the given alias in the source instance to a backing index with the same name as the source backing index in the target instance, and set up alias to point to that index in the target instance. If provided, the optional `size` argument limits the maximum number of documents to be cloned. 
+* `esmigrate clone [source] [target] [alias] [size? = Infinity]` -- Copy documents from the given alias in the source instance to a backing index with the same name as the source backing index in the target instance, and set up alias to point to that index in the target instance. If provided, the optional `size` argument limits the maximum number of documents to be cloned. Cloning requires that your target instance already have the source whitelisted.
 
 * `esmigrate validate [path? = './migrations']` -- Check that migration files in the specified folder are all valid.
 
