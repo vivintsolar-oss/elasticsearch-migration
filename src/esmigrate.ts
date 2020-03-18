@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import {
   clone,
   update,
@@ -6,7 +7,8 @@ import {
 } from './index';
 
 async function main() {
-  let [ , , cmd, ...args] = process.argv;
+  const [ , , cmd, ...args] = process.argv;
+  if (!cmd) throw new Error("Missing Command");
 
   switch (cmd) {
     case 'init': {
@@ -47,6 +49,6 @@ async function main() {
 
 main().catch((e) => {
   console.error(e.message);
-  console.error(e.stack);
+  //console.error(e.stack);
   process.exit(1);
 });
