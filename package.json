@@ -1,0 +1,32 @@
+{
+  "name": "esmigrate",
+  "version": "0.1.0",
+  "description": "Schema migration tool for elasticsearch",
+  "main": "./dist/index.js",
+  "bin": {
+    "esmigrate": "dist/esmigrate.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "elasticsearch",
+    "schema",
+    "migration"
+  ],
+  "author": "Logan R. Kearsley",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^13.9.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivintsolar-oss/elasticsearch-migration.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vivintsolar-oss/elasticsearch-migration/issues"
+  },
+  "homepage": "https://github.com/vivintsolar-oss/elasticsearch-migration#readme"
+}
